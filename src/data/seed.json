@@ -1,0 +1,94 @@
+{
+  "barcos": [
+    {
+      "id": "B1",
+      "nombre": "Nautilus",
+      "tipo": "Velero",
+      "dueño": "C1",
+      "ubicacion": "Puerto A - Dársena 5",
+      "estado": "Mantenimiento"
+    },
+    {
+      "id": "B2",
+      "nombre": "Poseidón",
+      "tipo": "Lancha",
+      "dueño": "C2",
+      "ubicacion": "Puerto B - Muelle 3",
+      "estado": "Disponible"
+    },
+    {
+      "id": "B3",
+      "nombre": "Tritón",
+      "tipo": "Yate",
+      "dueño": "C1",
+      "ubicacion": "Puerto A - Dársena 2",
+      "estado": "Reparación"
+    }
+  ],
+  "tareas": [
+    {
+      "id": "T1",
+      "barcoId": "B1",
+      "descripcion": "Revisar motor y cambiar aceite",
+      "trabajadorId": "W1",
+      "estado": "pendiente",
+      "fecha": "2024-01-15"
+    },
+    {
+      "id": "T2",
+      "barcoId": "B1",
+      "descripcion": "Inspeccionar velas y cuerdas",
+      "trabajadorId": "W2",
+      "estado": "pendiente",
+      "fecha": "2024-01-15"
+    },
+    {
+      "id": "T3",
+      "barcoId": "B2",
+      "descripcion": "Limpiar casco",
+      "trabajadorId": "W1",
+      "estado": "completada",
+      "fecha": "2024-01-14"
+    },
+    {
+      "id": "T4",
+      "barcoId": "B3",
+      "descripcion": "Reparar timón",
+      "trabajadorId": "W3",
+      "estado": "pendiente",
+      "fecha": "2024-01-15"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "J1",
+      "rol": "Jefe",
+      "nombre": "Juan García"
+    },
+    {
+      "id": "W1",
+      "rol": "Trabajador",
+      "nombre": "Carlos López"
+    },
+    {
+      "id": "W2",
+      "rol": "Trabajador",
+      "nombre": "María Rodríguez"
+    },
+    {
+      "id": "W3",
+      "rol": "Trabajador",
+      "nombre": "Pedro Martínez"
+    },
+    {
+      "id": "C1",
+      "rol": "Cliente",
+      "nombre": "Antonio Fernández"
+    },
+    {
+      "id": "C2",
+      "rol": "Cliente",
+      "nombre": "Sofía González"
+    }
+  ]
+}
