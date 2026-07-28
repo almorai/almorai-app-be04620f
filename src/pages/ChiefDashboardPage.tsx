@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/layout/PageHeader';
+import { PageHeader } from "../components/layout/PageHeader";
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
@@ -71,9 +70,9 @@ export default function ChiefDashboardPage() {
   }, [navigate]);
 
   const loadData = () => {
-    setBarcos(readStorage('yates_barcos') || []);
-    setTareas(readStorage('yates_tareas') || []);
-    setUsuarios(readStorage('yates_usuarios') || []);
+    setBarcos(readStorage('yates_barcos', []) || []);
+    setTareas(readStorage('yates_tareas', []) || []);
+    setUsuarios(readStorage('yates_usuarios', []) || []);
   };
 
   const saveBarcos = (nuevosBarcos: Barco[]) => {
@@ -204,7 +203,7 @@ export default function ChiefDashboardPage() {
   };
 
   return (
-    <Layout>
+    <>
       <PageHeader
         title="Panel del Jefe de Operaciones"
         description="Gestión de barcos, tareas e historial"
@@ -261,7 +260,7 @@ export default function ChiefDashboardPage() {
                 });
                 setShowBarcoForm(true);
               }}
-              icon={Plus}
+              data-data-icon={Plus}
             >
               Nuevo Barco
             </Button>
@@ -418,7 +417,7 @@ export default function ChiefDashboardPage() {
                         onClick={() => handleEditBarco(barco)}
                         size="sm"
                         variant="secondary"
-                        icon={Edit2}
+                        data-data-icon={Edit2}
                       >
                         Editar
                       </Button>
@@ -426,7 +425,7 @@ export default function ChiefDashboardPage() {
                         onClick={() => handleDeleteBarco(barco.id)}
                         size="sm"
                         variant="danger"
-                        icon={Trash2}
+                        data-data-icon={Trash2}
                       >
                         Eliminar
                       </Button>
@@ -459,7 +458,7 @@ export default function ChiefDashboardPage() {
             </div>
             <Button
               onClick={() => setShowTareaForm(true)}
-              icon={Plus}
+              data-data-icon={Plus}
             >
               Nueva Tarea
             </Button>
@@ -579,7 +578,7 @@ export default function ChiefDashboardPage() {
                     onClick={() => handleDeleteTarea(tarea.id)}
                     size="sm"
                     variant="danger"
-                    icon={Trash2}
+                    data-data-icon={Trash2}
                   >
                     Eliminar
                   </Button>
@@ -618,6 +617,6 @@ export default function ChiefDashboardPage() {
           )}
         </div>
       )}
-    </Layout>
+    </>
   );
 }

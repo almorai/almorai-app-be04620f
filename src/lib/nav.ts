@@ -41,3 +41,7 @@ export const getNavigation = (role: string | null) => {
     ...logout,
   ];
 };
+
+export const navItems = getNavigation(
+  typeof sessionStorage !== "undefined" ? sessionStorage.getItem("userRole") : null
+);

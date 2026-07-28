@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/layout/PageHeader';
+import { PageHeader } from "../components/layout/PageHeader";
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
 import { EmptyState } from '../components/ui/EmptyState';
@@ -51,9 +50,9 @@ export default function ClientPortalPage() {
   }, [navigate]);
 
   const loadData = () => {
-    setBarcos(readStorage('yates_barcos') || []);
-    setTareas(readStorage('yates_tareas') || []);
-    setUsuarios(readStorage('yates_usuarios') || []);
+    setBarcos(readStorage('yates_barcos', []) || []);
+    setTareas(readStorage('yates_tareas', []) || []);
+    setUsuarios(readStorage('yates_usuarios', []) || []);
   };
 
   const misBarcos = barcos.filter((b) => b.dueño === userId);
@@ -67,7 +66,7 @@ export default function ClientPortalPage() {
   };
 
   return (
-    <Layout>
+    <>
       <PageHeader
         title="Mi Portal de Barcos"
         description={`Tienes ${misBarcos.length} barco(s) registrado(s)`}
@@ -153,6 +152,6 @@ export default function ClientPortalPage() {
           })}
         </div>
       )}
-    </Layout>
+    </>
   );
 }

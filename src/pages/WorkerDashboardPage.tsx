@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
-import PageHeader from '../components/layout/PageHeader';
+import { PageHeader } from "../components/layout/PageHeader";
 import { Button } from '../components/ui/Button';
 import { Table } from '../components/ui/Table';
 import { Badge } from '../components/ui/Badge';
@@ -47,8 +46,8 @@ export default function WorkerDashboardPage() {
   }, [navigate]);
 
   const loadData = () => {
-    setTareas(readStorage('yates_tareas') || []);
-    setBarcos(readStorage('yates_barcos') || []);
+    setTareas(readStorage('yates_tareas', []) || []);
+    setBarcos(readStorage('yates_barcos', []) || []);
   };
 
   const misTareas = tareas.filter((t) => t.trabajadorId === userId && t.estado === 'pendiente');
@@ -66,7 +65,7 @@ export default function WorkerDashboardPage() {
   };
 
   return (
-    <Layout>
+    <>
       <PageHeader
         title="Mis Tareas del Día"
         description={`${misTareas.length} tarea(s) pendiente(s)`}
@@ -95,7 +94,7 @@ export default function WorkerDashboardPage() {
               <Button
                 onClick={() => handleMarcarCompleta(t.id)}
                 size="sm"
-                icon={CheckCircle}
+                data-data-icon={CheckCircle}
               >
                 Completar
               </Button>
@@ -103,6 +102,6 @@ export default function WorkerDashboardPage() {
           }))}
         />
       )}
-    </Layout>
+    </>
   );
 }

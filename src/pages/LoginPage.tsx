@@ -17,7 +17,7 @@ export default function LoginPage() {
     sessionStorage.removeItem('userRole');
     sessionStorage.removeItem('userId');
     
-    const loadedUsuarios = readStorage('yates_usuarios') || [];
+    const loadedUsuarios = readStorage('yates_usuarios', []) || [];
     setUsuarios(loadedUsuarios);
   }, []);
 

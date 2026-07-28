@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import LoginPage from './pages/LoginPage';
 import ChiefDashboardPage from './pages/ChiefDashboardPage';
@@ -24,9 +24,9 @@ function App() {
 
   useEffect(() => {
     const initializeData = () => {
-      const barcos = readStorage('yates_barcos');
-      const tareas = readStorage('yates_tareas');
-      const usuarios = readStorage('yates_usuarios');
+      const barcos = readStorage('yates_barcos', []);
+      const tareas = readStorage('yates_tareas', []);
+      const usuarios = readStorage('yates_usuarios', []);
 
       if (!barcos || barcos.length === 0) {
         writeStorage('yates_barcos', seedData.barcos);
@@ -49,8 +49,7 @@ function App() {
   }
 
   return (
-    <Router>
-      <Routes>
+    <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/chief/*"
@@ -67,8 +66,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Router>
-  );
+    );
 }
 
 export default App;
